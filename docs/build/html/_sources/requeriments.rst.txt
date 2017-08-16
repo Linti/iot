@@ -1,7 +1,0 @@
-Trabajo final
-*************
-
-En esta guía encontrarán los paso que se realizaron para realizar el trabajo
-final de la materia IoT 2017
-
-
