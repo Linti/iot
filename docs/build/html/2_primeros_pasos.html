@@ -1,0 +1,303 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Primeros pasos &mdash; documentación de IoT - 0.0.1</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Índice"
+              href="genindex.html"/>
+        <link rel="search" title="Búsqueda" href="search.html"/>
+    <link rel="top" title="documentación de IoT - 0.0.1" href="index.html"/>
+        <link rel="prev" title="Entrono" href="1_entorno.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> IoT
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Tabla de contenido</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="1_entorno.html">Entrono</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Primeros pasos</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#correr-el-emulador">Correr el emulador</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#crear-simulacion">Crear simulación</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#agregar-motas">Agregar motas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#correr-simulacion">Correr simulación</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#examinando-el-codigo">Examinando el código</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">IoT</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Primeros pasos</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/2_primeros_pasos.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="primeros-pasos">
+<h1>Primeros pasos<a class="headerlink" href="#primeros-pasos" title="Enlazar permanentemente con este título">¶</a></h1>
+<div class="section" id="correr-el-emulador">
+<h2>Correr el emulador<a class="headerlink" href="#correr-el-emulador" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>El emulador es un herramienta desarrollada en <code class="code docutils literal"><span class="pre">Java</span></code> y se hará uso de
+<code class="code docutils literal"><span class="pre">Apache</span> <span class="pre">Ant</span></code> pare realizar la construcción de <code class="code docutils literal"><span class="pre">Cooja</span></code> y ejecutarlo.</p>
+<p>Para ello debemos ir al directorio <code class="code docutils literal"><span class="pre">cd</span> <span class="pre">~/contiki/tools/cooja</span></code> y ejecutar
+el comando <code class="code docutils literal"><span class="pre">ant</span> <span class="pre">run</span></code>.</p>
+<iframe width="100%" height="400" src="http://www.youtube.com/embed/H8IQm17dIBw?rel=0" frameborder="0" allowfullscreen></iframe></div>
+<div class="section" id="crear-simulacion">
+<h2>Crear simulación<a class="headerlink" href="#crear-simulacion" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Para crear una nueva simulación debemos ir al menú <code class="code docutils literal"><span class="pre">File</span> <span class="pre">&gt;</span> <span class="pre">New</span> <span class="pre">simulation...</span></code></p>
+<iframe width="100%" height="400" src="http://www.youtube.com/embed/_yy_O9wjaB0?rel=0" frameborder="0" allowfullscreen></iframe></div>
+<div class="section" id="agregar-motas">
+<h2>Agregar motas<a class="headerlink" href="#agregar-motas" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Una vez creada la simulación podemos agregar motas a la misma. Para esto vamos
+a al menú <code class="code docutils literal"><span class="pre">Motes</span> <span class="pre">&gt;</span> <span class="pre">Add</span> <span class="pre">motes</span> <span class="pre">&gt;</span> <span class="pre">Create</span> <span class="pre">new</span> <span class="pre">mote</span> <span class="pre">type</span></code> y elegimos el tipo
+de mota <strong>Z1</strong>.</p>
+<p>Lo siguiente que debemos hacer es seleccionar cual es el código que queremos
+que se ejecute dentro de las nuevas motas. Para el ejemplo vamos a elegir el
+código que se encuentra en el archivos
+<code class="code docutils literal"><span class="pre">/home/iot/contiki/examples/hello-world/hello-world.c</span></code>. El mismo es un
+script muy simple que lo único que hace imprimir en pantalla <strong>Hello, world</strong>.</p>
+<p>Luego de seleccionarlo lo compilamos y creamos las motas. Además el simulador
+nos va a pedir que ingresemos la cantidad de motas que queremos agregar de este
+tipo.</p>
+<iframe width="100%" height="400" src="http://www.youtube.com/embed/Hnk3AE0Xh4A?rel=0" frameborder="0" allowfullscreen></iframe></div>
+<div class="section" id="correr-simulacion">
+<h2>Correr simulación<a class="headerlink" href="#correr-simulacion" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Con las motas creadas ya podemos iniciar una simulación. Presionando el botón
+<strong>Start</strong> que se encuentra en la ventana llamada <strong>Simulation control</strong>
+empiezan a ejecutarse las motas.</p>
+<iframe width="100%" height="400" src="http://www.youtube.com/embed/Lvy0jVotlcM?rel=0" frameborder="0" allowfullscreen></iframe><p>En el video se puede ver la salida que muestran las motas en la ventana llamada
+<strong>Mote output</strong>. En este lugar se puede ver como cada mota en ejecución realiza
+la impresión de la palabra <strong>Hello, world</strong>.</p>
+<p>Además se puede observar como las motas se comunican entre ellas armando una
+red dependiendo de la proximidad. Se puede ver como en un principio la mota 2
+estaba aislada del resto hasta que se la acerca a la red y comienza a
+comunicarse.</p>
+</div>
+<div class="section" id="examinando-el-codigo">
+<h2>Examinando el código<a class="headerlink" href="#examinando-el-codigo" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>A las motas que mostramos en el ejemplo le compilamos el siguiente código
+escrito en el <strong>Lenguaje de programació C</strong>:</p>
+<div class="highlight-c"><div class="highlight"><pre><span></span><span class="cm">/*-------------------------------------------------*/</span>
+<span class="n">PROCESS</span><span class="p">(</span><span class="n">hello_world_process</span><span class="p">,</span> <span class="s">&quot;Hello world process&quot;</span><span class="p">);</span>
+<span class="n">AUTOSTART_PROCESSES</span><span class="p">(</span><span class="o">&amp;</span><span class="n">hello_world_process</span><span class="p">);</span>
+<span class="cm">/*-------------------------------------------------*/</span>
+<span class="n">PROCESS_THREAD</span><span class="p">(</span><span class="n">hello_world_process</span><span class="p">,</span> <span class="n">ev</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="hll">  <span class="n">PROCESS_BEGIN</span><span class="p">();</span>
+</span><span class="hll">  <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Hello, world</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+</span><span class="hll">  <span class="n">PROCESS_END</span><span class="p">();</span>
+</span><span class="p">}</span>
+</pre></div>
+</div>
+<p>Este es el código del proceso que se ejecuta en cada mota y en las líneas
+resaltadas podemos ver el cuerpo del mismo. Se comienza con el proceso luego
+se ejecuta la instrucción <code class="code docutils literal"><span class="pre">printf(&quot;Hello,</span> <span class="pre">world\n&quot;);</span></code> y se termina el
+mismo.</p>
+<p>Si queremos ejecutar otra cosa en su lugar, debemos reemplazar el
+<code class="code docutils literal"><span class="pre">printf(&quot;Hello,</span> <span class="pre">world\n&quot;);</span></code> con lo el código que necesitemos, compilar
+nuevamente las motas y volver a iniciar la simulación.</p>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="1_entorno.html" class="btn btn-neutral" title="Entrono" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Otaran Federico.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="_static/translations.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
