@@ -1,5 +1,5 @@
-Primeros pasos
-==============
+Entrono
+=======
 
 Antes de comenzar con es necesario tener un poco de información de las
 herramientas que se encuentra en la imagen.

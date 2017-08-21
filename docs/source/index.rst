@@ -17,5 +17,5 @@ almacenarla y visualizarla.
    :caption: Tabla de contenido
    :maxdepth: 2
 
-   1_primeros_pasos
-   2_correr_emulador
+   1_entorno
+   2_primeros_pasos
