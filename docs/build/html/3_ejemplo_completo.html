@@ -1,0 +1,291 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Ejemplo completo &mdash; documentación de IoT - 0.0.1</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Índice"
+              href="genindex.html"/>
+        <link rel="search" title="Búsqueda" href="search.html"/>
+    <link rel="top" title="documentación de IoT - 0.0.1" href="index.html"/>
+        <link rel="prev" title="Primeros pasos" href="2_primeros_pasos.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> IoT
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Tabla de contenido</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="1_entorno.html">Entrono</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_primeros_pasos.html">Primeros pasos</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Ejemplo completo</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#compilar-mota-con-api">Compilar mota con API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#configurar-mota-como-router-de-borde">Configurar mota como Router de borde</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#recoleccion-almacenamiento-y-visualizacion-de-datos-de-las-motas">Recoleccion, almacenamiento y visualización de datos de las motas</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">IoT</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Ejemplo completo</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/3_ejemplo_completo.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="ejemplo-completo">
+<h1>Ejemplo completo<a class="headerlink" href="#ejemplo-completo" title="Enlazar permanentemente con este título">¶</a></h1>
+<p>Ahora vamos a ver un ejemplo completo en el cual mostraremos varios puntos:</p>
+<ul class="simple">
+<li>Configurar un ruter de borde que permita sacar la información por fuera de la
+red.</li>
+<li>Cargar y ejecutar en las <strong>motas z1</strong> una API <strong>COAP</strong> para poder obtener
+información de las mismas.</li>
+<li>Recolectar información de la mota por medio de la API <strong>COAP</strong>.</li>
+<li>Almacenar la información en una base de datos de series de tiempo.</li>
+<li>Mostrar la información recolectada en tiempo real por medio de gráficos.</li>
+</ul>
+<div class="section" id="compilar-mota-con-api">
+<h2>Compilar mota con API<a class="headerlink" href="#compilar-mota-con-api" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Para realizar esto tenemos que abrir el simulador <strong>Cooja</strong>, comenzar una
+simulación, y agregar una <strong>mota z1</strong> a la simulación compilando el código que
+se encuentra en:</p>
+<p><code class="code docutils literal"><span class="pre">contiki/examples/er-rest-example/er-example-server.c</span></code></p>
+<iframe width="100%" height="400" frameborder="0"
+  src="https://www.youtube.com/embed/aYCGtUHdzgY" allowfullscreen>
+</iframe></div>
+<div class="section" id="configurar-mota-como-router-de-borde">
+<h2>Configurar mota como Router de borde<a class="headerlink" href="#configurar-mota-como-router-de-borde" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Para poder sacar el tráfico fuera de la red es necesario contar con una mota
+compilada con un código específica para esta tarea.</p>
+<p>Es por eso que se debe compilar dentro del una mota el código necesario para
+que la misma funciona como router de borde.</p>
+<p>El código lo encontramos en:</p>
+<p><code class="code docutils literal"><span class="pre">contiki/examples/ipv6/rpl-border-router/border-router.c</span></code></p>
+<iframe width="100%" height="400" frameborder="0"
+  src="https://www.youtube.com/embed/LlqQrsWiekk" allowfullscreen>
+</iframe></div>
+<div class="section" id="recoleccion-almacenamiento-y-visualizacion-de-datos-de-las-motas">
+<h2>Recoleccion, almacenamiento y visualización de datos de las motas<a class="headerlink" href="#recoleccion-almacenamiento-y-visualizacion-de-datos-de-las-motas" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Para obtener la información de las motas vamos a utilizar una librería php
+que hace de cliente <strong>COAP</strong> para consultar las APIs que exponen las motas.</p>
+<p>La librería que usaremos es: github_de_la_librería</p>
+<p>Ademas de un cliente para obtener los datos, es necesario contar con un cliente
+para <strong>InfluxDB</strong> que es nuestra base de datos. Con el mismo podremos enviar la
+información a la base luego de haberla recolectado.</p>
+<p>Una vez recolectada la información es necesario que podamos visualizarla. Para
+esto es que vamos a utilizar la herramienta llamada <strong>Grafana</strong>. La misma nos
+permite realizar fácilmente consultas sobre <strong>InfluxDB</strong> y realizar gráficos
+para visualizar los datos que las motas emiten en tiempo real.</p>
+<p>Para la instalacion de tanto de <strong>Grafana</strong> como de <strong>InfluxDB</strong> vamos a
+utilizar un <strong>Docker Compose</strong> provisto por la cátedra que realiza la ejecución
+de las dos herramientas.</p>
+<p>Para esto tenemos que dirigirnos al directorio <code class="code docutils literal"><span class="pre">~/iot</span></code> y ejecutar el script
+<code class="code docutils literal"><span class="pre">run.sh</span></code> como root.</p>
+<p><code class="code docutils literal"><span class="pre">cd</span> <span class="pre">~/iot</span> <span class="pre">&amp;&amp;</span> <span class="pre">sudo</span> <span class="pre">./run.sh</span></code></p>
+<iframe width="100%" height="400" frameborder="0"
+  src="https://www.youtube.com/embed/TD4SuksjpYA" allowfullscreen>
+</iframe></div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="2_primeros_pasos.html" class="btn btn-neutral" title="Primeros pasos" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Otaran Federico.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="_static/translations.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
