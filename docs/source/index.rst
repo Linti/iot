@@ -15,7 +15,7 @@ almacenarla y visualizarla.
 
 .. toctree::
    :caption: Tabla de contenido
-   :maxdepth: 2
+   :maxdepth: 3
 
    1_entorno
    2_primeros_pasos

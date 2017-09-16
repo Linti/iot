@@ -198,10 +198,146 @@ que la misma funciona como router de borde.</p>
 <h2>Recoleccion, almacenamiento y visualización de datos de las motas<a class="headerlink" href="#recoleccion-almacenamiento-y-visualizacion-de-datos-de-las-motas" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>Para obtener la información de las motas vamos a utilizar una librería php
 que hace de cliente <strong>COAP</strong> para consultar las APIs que exponen las motas.</p>
-<p>La librería que usaremos es: github_de_la_librería</p>
+<p>La librería que usaremos es: <a class="reference external" href="https://github.com/cfullelove/PhpCoap">https://github.com/cfullelove/PhpCoap</a></p>
 <p>Ademas de un cliente para obtener los datos, es necesario contar con un cliente
 para <strong>InfluxDB</strong> que es nuestra base de datos. Con el mismo podremos enviar la
 información a la base luego de haberla recolectado.</p>
+<p>La librería que usaremos es: <a class="reference external" href="https://github.com/influxdata/influxdb-php">https://github.com/influxdata/influxdb-php</a></p>
+<p>Como ejemplo de script que recolecta información de la API en las motas y envía
+la información a <strong>InfluxDB</strong> tenemos el siguiente script:</p>
+<div class="highlight-php"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">&lt;?php</span>
+<span class="k">require</span> <span class="p">(</span><span class="no">__DIR__</span><span class="o">.</span> <span class="s1">&#39;/vendor/autoload.php&#39;</span><span class="p">);</span>
+<span class="k">require</span> <span class="p">(</span><span class="no">__DIR__</span><span class="o">.</span> <span class="s1">&#39;/influxData/vendor/autoload.php&#39;</span><span class="p">);</span>
+
+<span class="nv">$motas</span> <span class="o">=</span> <span class="k">array</span><span class="p">();</span>
+<span class="nv">$motas</span><span class="p">[]</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;ip&#39;</span><span class="o">=&gt;</span><span class="s1">&#39;2&#39;</span><span class="p">);</span>
+<span class="nv">$motas</span><span class="p">[]</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;ip&#39;</span><span class="o">=&gt;</span><span class="s1">&#39;3&#39;</span><span class="p">);</span>
+<span class="nv">$motas</span><span class="p">[]</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;ip&#39;</span><span class="o">=&gt;</span><span class="s1">&#39;4&#39;</span><span class="p">);</span>
+<span class="nv">$motas</span><span class="p">[]</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;ip&#39;</span><span class="o">=&gt;</span><span class="s1">&#39;5&#39;</span><span class="p">);</span>
+<span class="nv">$motas</span><span class="p">[]</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;ip&#39;</span><span class="o">=&gt;</span><span class="s1">&#39;6&#39;</span><span class="p">);</span>
+<span class="nv">$motas</span><span class="p">[]</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;ip&#39;</span><span class="o">=&gt;</span><span class="s1">&#39;7&#39;</span><span class="p">);</span>
+<span class="nv">$motas</span><span class="p">[]</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;ip&#39;</span><span class="o">=&gt;</span><span class="s1">&#39;8&#39;</span><span class="p">);</span>
+
+<span class="nv">$metodos</span> <span class="o">=</span> <span class="k">array</span><span class="p">();</span>
+<span class="nv">$metodos</span><span class="p">[]</span> <span class="o">=</span> <span class="s1">&#39;/sensors/luz&#39;</span><span class="p">;</span>
+<span class="nv">$metodos</span><span class="p">[]</span> <span class="o">=</span> <span class="s1">&#39;/sensors/tem&#39;</span><span class="p">;</span>
+
+<span class="nv">$clientInflux</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">InfluxDB\Client</span><span class="p">(</span><span class="s1">&#39;127.0.0.1&#39;</span><span class="p">,</span> <span class="s1">&#39;8086&#39;</span><span class="p">,</span><span class="k">null</span><span class="p">,</span><span class="k">null</span><span class="p">,</span><span class="k">null</span><span class="p">,</span><span class="k">null</span><span class="p">,</span><span class="mi">99</span><span class="p">);</span>
+<span class="nv">$database</span> <span class="o">=</span> <span class="nv">$clientInflux</span><span class="o">-&gt;</span><span class="na">selectDB</span><span class="p">(</span><span class="s1">&#39;grupo_1&#39;</span><span class="p">);</span>
+
+<span class="k">while</span> <span class="p">(</span><span class="k">true</span><span class="p">){</span>
+  <span class="k">foreach</span> <span class="p">(</span><span class="nv">$motas</span> <span class="k">as</span> <span class="nv">$mota</span><span class="p">)</span> <span class="p">{</span>
+
+    <span class="nv">$loop</span> <span class="o">=</span> <span class="nx">React\EventLoop\Factory</span><span class="o">::</span><span class="na">create</span><span class="p">();</span>
+    <span class="nx">j</span>
+    <span class="k">foreach</span> <span class="p">(</span><span class="nv">$metodos</span> <span class="k">as</span> <span class="nv">$metodo</span><span class="p">)</span> <span class="p">{</span>
+      <span class="c1"># code...</span>
+      <span class="nv">$client</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">PhpCoap\Client\Client</span><span class="p">(</span> <span class="nv">$loop</span> <span class="p">);</span>
+      <span class="nv">$client</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span> <span class="s1">&#39;coap://[fd00::c30c:0:0:&#39;</span><span class="o">.</span><span class="nv">$mota</span><span class="p">[</span><span class="s1">&#39;ip&#39;</span><span class="p">]</span><span class="o">.</span><span class="s1">&#39;]:5683&#39;</span><span class="o">.</span><span class="nv">$metodo</span><span class="p">,</span> <span class="k">function</span><span class="p">(</span> <span class="nv">$data</span> <span class="p">)</span> <span class="p">{</span>
+        <span class="nv">$GLOBALS</span><span class="p">[</span><span class="s1">&#39;valor&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">json_decode</span><span class="p">(</span> <span class="nv">$data</span> <span class="p">);</span>
+      <span class="p">}</span> <span class="p">);</span>
+
+      <span class="nv">$loop</span><span class="o">-&gt;</span><span class="na">run</span><span class="p">();</span>
+      <span class="c1">// INFLUX</span>
+      <span class="nv">$valor</span> <span class="o">=</span> <span class="nv">$GLOBALS</span><span class="p">[</span><span class="s1">&#39;valor&#39;</span><span class="p">];</span>
+
+      <span class="k">switch</span> <span class="p">(</span><span class="nv">$metodo</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">case</span> <span class="s1">&#39;/sensors/luz&#39;</span><span class="o">:</span>
+        <span class="nv">$measurement</span> <span class="o">=</span> <span class="s1">&#39;light&#39;</span><span class="p">;</span>
+        <span class="nv">$valor</span> <span class="o">=</span> <span class="nb">rand</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">10000</span><span class="p">);</span>
+        <span class="k">break</span><span class="p">;</span>
+      <span class="k">case</span> <span class="s1">&#39;/sensors/tem&#39;</span><span class="o">:</span>
+        <span class="nv">$measurement</span> <span class="o">=</span> <span class="s1">&#39;temperature&#39;</span><span class="p">;</span>
+        <span class="nv">$valor</span> <span class="o">=</span> <span class="nb">rand</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">30</span><span class="p">);</span>
+        <span class="k">break</span><span class="p">;</span>
+      <span class="p">}</span>
+
+      <span class="k">echo</span> <span class="nv">$mota</span><span class="p">[</span><span class="s1">&#39;ip&#39;</span><span class="p">]</span><span class="o">.</span><span class="s2">&quot; : &quot;</span><span class="p">;</span>
+      <span class="k">echo</span> <span class="nv">$measurement</span><span class="o">.</span><span class="s2">&quot; : &quot;</span><span class="p">;</span>
+      <span class="k">echo</span> <span class="nv">$valor</span><span class="o">.</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">;</span>
+
+      <span class="nv">$points</span><span class="p">[]</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">InfluxDB\Point</span><span class="p">(</span>
+        <span class="nv">$measurement</span><span class="p">,</span> <span class="c1">// name of the measurement</span>
+        <span class="nv">$valor</span><span class="p">,</span> <span class="c1">// the measurement value</span>
+        <span class="p">[</span><span class="s2">&quot;ip&quot;</span> <span class="o">=&gt;</span> <span class="nv">$mota</span><span class="p">[</span><span class="s1">&#39;ip&#39;</span><span class="p">]],</span> <span class="c1">// tags</span>
+        <span class="k">array</span><span class="p">(),</span> <span class="c1">// extra</span>
+        <span class="nb">time</span><span class="p">()</span> <span class="c1">// Time precision has to be set to seconds!</span>
+      <span class="p">);</span>
+
+      <span class="nv">$database</span> <span class="o">=</span> <span class="nv">$GLOBALS</span><span class="p">[</span><span class="s1">&#39;database&#39;</span><span class="p">];</span>
+      <span class="nv">$result</span> <span class="o">=</span> <span class="nv">$database</span><span class="o">-&gt;</span><span class="na">writePoints</span><span class="p">(</span><span class="nv">$points</span><span class="p">,</span><span class="nx">InfluxDB\Database</span><span class="o">::</span><span class="na">PRECISION_SECONDS</span><span class="p">);</span>	
+    <span class="p">}</span>
+
+    <span class="nb">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
 <p>Una vez recolectada la información es necesario que podamos visualizarla. Para
 esto es que vamos a utilizar la herramienta llamada <strong>Grafana</strong>. La misma nos
 permite realizar fácilmente consultas sobre <strong>InfluxDB</strong> y realizar gráficos

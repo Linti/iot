@@ -52,11 +52,20 @@ Recoleccion, almacenamiento y visualización de datos de las motas
 Para obtener la información de las motas vamos a utilizar una librería php
 que hace de cliente **COAP** para consultar las APIs que exponen las motas.
 
-La librería que usaremos es: github_de_la_librería
+La librería que usaremos es: https://github.com/cfullelove/PhpCoap
 
 Ademas de un cliente para obtener los datos, es necesario contar con un cliente
 para **InfluxDB** que es nuestra base de datos. Con el mismo podremos enviar la 
 información a la base luego de haberla recolectado.
+
+La librería que usaremos es: https://github.com/influxdata/influxdb-php
+
+Como ejemplo de script que recolecta información de la API en las motas y envía
+la información a **InfluxDB** tenemos el siguiente script:
+
+.. literalinclude:: code/enviarLuzyTemp.php
+   :language: php
+   :linenos:
 
 Una vez recolectada la información es necesario que podamos visualizarla. Para
 esto es que vamos a utilizar la herramienta llamada **Grafana**. La misma nos
