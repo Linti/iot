@@ -65,7 +65,17 @@ la información a **InfluxDB** tenemos el siguiente script:
 
 .. literalinclude:: code/enviarLuzyTemp.php
    :language: php
-   :linenos:
+
+Para ejecutar el archivo y comenzar a recolectar información en **Influx**
+ejecutamos el script de la siguiente manera:
+
+:code:`php enviarLuzyTemp.php`
+
+.. raw:: html
+
+    <iframe width="100%" height="400" frameborder="0"
+      src="https://www.youtube.com/embed/INWWdwzb7uI" allowfullscreen>
+    </iframe>
 
 Una vez recolectada la información es necesario que podamos visualizarla. Para
 esto es que vamos a utilizar la herramienta llamada **Grafana**. La misma nos
@@ -86,3 +96,14 @@ Para esto tenemos que dirigirnos al directorio :code:`~/iot` y ejecutar el scrip
     <iframe width="100%" height="400" frameborder="0"
       src="https://www.youtube.com/embed/TD4SuksjpYA" allowfullscreen>
     </iframe>
+
+El siguiente paso en generar nuestros tableros en **Grafana** que consulten la
+información que está en la base de datos y vamos a poder ver la información
+en tiempo real.
+
+.. raw:: html
+
+    <iframe width="100%" height="400" frameborder="0"
+      src="https://www.youtube.com/embed/7QLMR5Zkbo0" allowfullscreen>
+    </iframe>
+
